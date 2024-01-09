@@ -1,16 +1,20 @@
-import React from "react";
-import FirstHeader from "@/app/components/firstHeader/firstHeader";
-import MainHeader from "../../components/MainHeader/mainHeader";
-import NavBar from "@/app/components/NabBar/NavBar";
+"use client";
+import React, { use } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import fetchedData from "@/app/data/data";
+import { useRecoilState } from "recoil";
+import { dataShareState } from "@/store/atoms/dataShare";
 
-const page = () => {
-  return (
-    <div>
-      <FirstHeader />
-      <MainHeader />
-      <NavBar />
-    </div>
-  );
+const Page = () => {
+  const [dataShare, setDataShare] = useRecoilState(dataShareState);
+
+  console.log("dataShare =>", dataShare);
+  useEffect(() => {
+    setDataShare(fetchedData);
+  }, [dataShare, setDataShare]);
+
+  return <div></div>;
 };
 
-export default page;
+export default Page;

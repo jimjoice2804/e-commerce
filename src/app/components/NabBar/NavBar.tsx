@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
 import { useState } from "react";
+import { FaCaretDown } from "react-icons/fa";
 
 const NavBar = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -12,15 +13,16 @@ const NavBar = () => {
   return (
     <div className="py-4 bg-[#0189FE] border-t-2 border-black flex justify-around text-white">
       <div
-        className="relative font-bold text-base bg-[#0189FE] "
+        className="relative font-bold text-base bg-[#0189FE]  z-10"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Link href="/all-products">All products</Link>
+        <Link  className='flex gap-1 items-center
+        ' href="all-products">All products{<FaCaretDown />}</Link>
         {isHovered && (
           <div className="flex flex-col absolute bg-[#0189FE] w-64 h-64 px-5 py-6 gap-5">
             {products.map((product, index) => (
-              <Link href={`/product/${product}`} key={index}>
+              <Link href={`product/${product}`} key={index}>
                 {product}
               </Link>
             ))}

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const firstHeader = () => {
   return (
@@ -11,8 +12,8 @@ const firstHeader = () => {
       <div></div>
 
       <div className="flex gap-5 font-light">
-        <p>Shipping & return</p>
-        <p>Track order</p>
+        <Link href={''}>Shipping & return</Link>
+        <Link href={''}>Track order</Link>
       </div>
     </div>
   );
